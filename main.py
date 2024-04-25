@@ -1,7 +1,6 @@
 # import requests
 import os
-from platform import python_branch
-import re
+
 from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -10,9 +9,11 @@ from selenium.webdriver.common.keys import Keys
 
 import pyotp
 import time
+
+driver_path = r"C:\Users\Refael\AppData\Local\BraveSoftware\Brave-Browser\Application\brave.exe"
+
+
 load_dotenv() 
-
-
 username = os.getenv('USER')
 password = os.getenv('PASS')
 OTPCODE = os.getenv('OTPSECERT')
@@ -49,7 +50,7 @@ def login():
     otpinput = driver.find_element(By.ID, "input_1")
     otpinput.send_keys(otpcode())
     time.sleep(1)
-    password_input.send_keys(Keys.RETURN)
+    # password_input.send_keys(Keys.RETURN)
 
     time.sleep(20) 
     
